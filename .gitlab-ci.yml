@@ -16,7 +16,7 @@ test_job:
   resource_group: build-single # we are sensitive to concurrent jobs, so we try to execute one pipeline after the other. Drop this if you are not on a dedicated machine.
   script:
     - 'Rename-Item .\ci-nuget.config nuget.config' # rename the nuget config file so that it is picked up by Nuget automatically
-    - 'dotnet tool restore' # Install the local tools
+  #  - 'dotnet tool restore' # Install the local tools
     - 'dotnet test DotnetGitlabExample.sln --collect="XPlat Code Coverage" --logger:"junit;LogFilePath=testresult.xml"' # Run all tests, report them in JUNIT Format for Gitlab.
     - 'dotnet tool run reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"./coverage" --reporttypes:Cobertura' # Generate Code Coverage Reports
   artifacts: # upload files so Gitlab can show them in the merge view
@@ -39,7 +39,7 @@ code_quality_job:
   stage: test
   script:
     - 'mv ci-nuget.config nuget.config'
-    - 'dotnet tool restore'
+ #   - 'dotnet tool restore'
     - 'dotnet build'
     - 'dotnet tool run roslynator analyze ./DotnetGitlabExample.sln -o roslynator.xml  || true' # run roslynator
     - 'dotnet tool run cq roslynator roslynator.xml gl-code-quality-report1.json %DIR' # convert roslynator into gitlab format
