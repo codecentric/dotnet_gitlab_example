@@ -28,7 +28,7 @@ test_job:
         path: "./coverage/Cobertura.xml"
   rules:
     - if: $CI_MERGE_REQUEST_ID
-    - if: $CI_COMMIT_REF_NAME == "release"
+    - if: $CI_COMMIT_REF_NAME == "main"
     - if: $CI_COMMIT_REF_NAME == "develop"
   when:
     always
@@ -57,7 +57,7 @@ code_quality_job:
   
   rules:
     - if: $CI_MERGE_REQUEST_ID
-    - if: $CI_COMMIT_REF_NAME == "release"
+    - if: $CI_COMMIT_REF_NAME == "main"
     - if: $CI_COMMIT_REF_NAME == "develop"
   when:
     always
