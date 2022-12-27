@@ -1,0 +1,9 @@
+﻿<Project>
+  <PropertyGroup>
+    <AnalysisLevel>latest-All</AnalysisLevel>
+    <ErrorLog>codeanalysis.sarif.json</ErrorLog>
+    <AnalysisLevel>preview-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisMode>All</AnalysisMode>
+  </PropertyGroup>
+</Project>
