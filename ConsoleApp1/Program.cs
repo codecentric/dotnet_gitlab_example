@@ -2,10 +2,6 @@
 
 Console.WriteLine("Hello, World!");
 
-if (true)
-{
-    Console.WriteLine("Dummy");
-}
-else // RCS1040
+if ("abc".ToLower() == "12a".ToLower()) // RCS1155
 {
 }

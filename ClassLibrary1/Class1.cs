@@ -6,6 +6,21 @@ public class Class1
 {
     static public String Test()
     {
-        return "ddd";
+        if ("abc".ToLower() == "12a".ToLower()) // RCS1155
+        {
+            return "a";
+        }
+
+
+        try
+        {
+            return "ddd";
+        }
+        catch (Exception ex)
+        {
+            
+        }
+
+        return "aaa";
     }
 }
