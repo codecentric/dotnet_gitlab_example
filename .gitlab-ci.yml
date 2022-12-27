@@ -42,7 +42,7 @@ code_quality_job:
     # - 'mv ci-nuget.config nuget.config'
     - 'dotnet tool restore'
     - 'dotnet build'
-    - 'dotnet tool run roslynator analyze ./DotnetGitlabExample.sln -o roslynator.xml  || true' # run roslynator
+    - 'dotnet tool run roslynator  analyze -o ./roslynator.xml --severity-level hidden || true' # run roslynator
     - 'ls -la'
     - 'dotnet tool run cq roslynator roslynator.xml gl-code-quality-report1.json %DIR' # convert roslynator into gitlab format
     - 'dotnet tool run cq sarif ClassLibrary1/codeanalysis.sarif.json gl-code-quality-report2.json %DIR' # convert sarif file into gitlab format
