@@ -54,8 +54,10 @@ code_quality_job:
     paths:
       - roslynator.xml
       - gl-code-quality-report.json
-      - gl-code-quality-report*.json
+      - gl-code-quality-report2.json
+      - gl-code-quality-report3.json
       - ConsoleApp1/codeanalysis.sarif.json
+      - ClassLibrary1/codeanalysis.sarif.json
     expose_as: 'code_quality_reports'
     reports:
       codequality: gl-code-quality-report.json
