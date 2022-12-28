@@ -22,5 +22,10 @@ public class Class1
         }
 
         return "aaa";
+
+        if (false == true)
+        {
+            return "weird code";
+        }
     }
 }
