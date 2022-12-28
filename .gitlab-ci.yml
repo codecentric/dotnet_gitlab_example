@@ -19,7 +19,7 @@ test_job:
     # - 'Rename-Item .\ci-nuget.config nuget.config' # rename the nuget config file so that it is picked up by Nuget automatically
     - 'dotnet tool restore' # Install the local tools
     - 'dotnet test DotnetGitlabExample.sln --collect="XPlat Code Coverage" --logger:"junit;LogFilePath=testresult.xml"' # Run all tests, report them in JUNIT Format for Gitlab.
-    - 'dotnet tool run reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"./coverage" --reporttypes:Cobertura' # Generate Code Coverage Reports
+    - 'dotnet tool run reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"./coverage" --reporttypes:Cobertura;HtmlInline' # Generate Code Coverage Reports
   artifacts: # upload files so Gitlab can show them in the merge view
     reports:
       junit:
@@ -27,6 +27,8 @@ test_job:
       coverage_report:
         coverage_format: cobertura
         path: "./coverage/Cobertura.xml"
+    paths:
+      - "./coverage/*.*" # collect coverage HTMls
   rules:
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_COMMIT_REF_NAME == "main"
