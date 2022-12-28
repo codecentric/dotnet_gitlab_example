@@ -46,9 +46,9 @@ code_quality_job:
     - 'dotnet build'
     - 'dotnet tool run roslynator  analyze -o ./roslynator.xml --severity-level hidden || true' # run roslynator
     - 'dotnet tool run cq roslynator roslynator.xml gl-code-quality-report1.json $DIR' # convert roslynator into gitlab format
-    - 'dotnet tool run cq sarif ClassLibrary1/codeanalysis.sarif.json gl-code-quality-report2.json DUMMY' # convert sarif file into gitlab format
-    - 'dotnet tool run cq sarif ConsoleApp1/codeanalysis.sarif.json gl-code-quality-report3.json DUMMY' # convert sarif file into gitlab format
-    - 'dotnet tool run cq sarif TestProject1/codeanalysis.sarif.json gl-code-quality-report4.json DUMMY' # convert sarif file into gitlab format
+    - 'dotnet tool run cq sarif ClassLibrary1/codeanalysis.sarif.json gl-code-quality-report2.json C:\dev' # convert sarif file into gitlab format
+    - 'dotnet tool run cq sarif ConsoleApp1/codeanalysis.sarif.json gl-code-quality-report3.json C:\dev' # convert sarif file into gitlab format
+    - 'dotnet tool run cq sarif TestProject1/codeanalysis.sarif.json gl-code-quality-report4.json C:\dev' # convert sarif file into gitlab format
     - 'dotnet tool run cq merge gl-code-quality-report.json gl-code-quality-report1.json gl-code-quality-report2.json gl-code-quality-report3.json gl-code-quality-report4.json' # merge all files
   artifacts:
     paths:
