@@ -28,4 +28,9 @@ public class Class1
             return "weird code";
         }
     }
+
+    public static string UntestedMethod()
+    {
+        throw new NotImplementedException();
+    }
 }
