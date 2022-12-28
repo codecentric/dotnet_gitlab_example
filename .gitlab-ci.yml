@@ -49,7 +49,7 @@ code_quality_job:
     - 'dotnet tool run cq sarif ClassLibrary1/codeanalysis.sarif.json gl-code-quality-report2.json c:/dev' # convert sarif file into gitlab format
     - 'dotnet tool run cq sarif ConsoleApp1/codeanalysis.sarif.json gl-code-quality-report3.json c:/dev' # convert sarif file into gitlab format
     - 'dotnet tool run cq sarif TestProject1/codeanalysis.sarif.json gl-code-quality-report4.json c:/dev' # convert sarif file into gitlab format
-    - 'dotnet tool run cq merge gl-code-quality-report.json gl-code-quality-report1.json gl-code-quality-report2.json gl-code-quality-report3.json gl-code-quality-report4.json' # merge all files
+    - 'dotnet tool run cq merge gl-code-quality-report.json gl-code-quality-report1.json gl-code-quality-report2.json gl-code-quality-report3.json gl-code-quality-report4.json --all_major' # merge all files
   artifacts:
     paths:
       - roslynator.xml
